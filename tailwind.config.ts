@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import colors from "tailwindcss/colors";
 
 export default {
   content: [
@@ -12,7 +13,18 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        'source-sans': ['"Source Sans Pro"', 'sans-serif'], // Add all weights of Source Sans Pro
+      },
     },
+    colors: {
+      "galaxy-neutral": {
+        400: "#64748B",
+        200: "#E3E8EF"
+      },
+      "shade-dark":"#18181B",
+      ...colors
+    }
   },
   plugins: [],
 } satisfies Config;
