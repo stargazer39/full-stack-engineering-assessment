@@ -1,21 +1,36 @@
+"use client";
+import { fetchIndustries } from "@/api/industries";
 import { IndustryCardCompanyRowProps } from "@/components/company-row";
 import IndustryCard from "@/components/industry-card";
 import Image from "next/image";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 interface CardCompany {
   jobs: IndustryCardCompanyRowProps[];
 }
 
-export default function Home() {
-  const jobs: IndustryCardCompanyRowProps[] = new Array(5).fill({
-    jobsCount: 1,
-    companyName: "Test",
-    logo: "https://placehold.co/600x400",
-  });
+export default async function Home() {
+  const industries = await fetchIndustries();
 
-  const elements = new Array(5)
-    .fill(null)
-    .map((_, i) => <IndustryCard key={i} jobs={jobs} />);
+  const elements = industries.map((industry) => {
+    const jobs: IndustryCardCompanyRowProps[] = industry.industries.map(
+      (v) => ({
+        companyName: v.name,
+        jobsCount: v.total_jobs_available,
+        logo: v.images["32x32"] || v.images["74x74"] || v.images["100x100"],
+      })
+    );
+
+    return (
+      <div>
+        <IndustryCard
+          name={industry.name}
+          jobs={jobs}
+          total={industry.industries.length}
+        />
+      </div>
+    );
+  });
 
   return (
     <div className="flex gap-[24px] flex-row p-[24px] bg-[#ECF1F7] font-source-sans flex-wrap w-full">
@@ -23,5 +38,3 @@ export default function Home() {
     </div>
   );
 }
-
-

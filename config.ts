@@ -1,0 +1,1 @@
+export const API_ENDPOINT: string = process.env.API_ENDPOINT ?? "https://full-stack-engineering-assessment-api.dehemi.com";

@@ -4,13 +4,16 @@ import IndustryCardCompanyRow, {
 
 interface IndustryCardProps {
   jobs: IndustryCardCompanyRowProps[];
+  name: string;
+  total: number;
 }
-function IndustryCard({ jobs }: IndustryCardProps) {
+
+function IndustryCard({ jobs, name, total }: IndustryCardProps) {
   return (
     <div className="p-[16px] w-[21em] rounded-[8px] bg-white text-[16px]">
       <div className="flex justify-between mb-[16px] pt-[4px]">
-        <div className="font-semibold shade-dark">Social</div>
-        <div className="text-galaxy-neutral-400 font-semibold">12</div>
+        <div className="font-semibold shade-dark">{name}</div>
+        <div className="text-galaxy-neutral-400 font-semibold">{total}</div>
       </div>
       <div>
         <div className="border-b-[1px] border-galaxy-neutral-200 mb-[14px] pb-[8px] flex items-center justify-between text-galaxy-neutral-400 text-xs">
