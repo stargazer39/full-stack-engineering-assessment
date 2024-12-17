@@ -1,13 +1,6 @@
-"use client";
 import { fetchIndustries } from "@/api/industries";
 import { IndustryCardCompanyRowProps } from "@/components/company-row";
 import IndustryCard from "@/components/industry-card";
-import Image from "next/image";
-import InfiniteScroll from "react-infinite-scroll-component";
-
-interface CardCompany {
-  jobs: IndustryCardCompanyRowProps[];
-}
 
 export default async function Home() {
   const industries = await fetchIndustries();
@@ -22,7 +15,7 @@ export default async function Home() {
     );
 
     return (
-      <div>
+      <div key={industry.name}>
         <IndustryCard
           name={industry.name}
           jobs={jobs}
