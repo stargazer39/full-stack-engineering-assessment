@@ -3,7 +3,7 @@ import { IndustryCardCompanyRowProps } from "@/components/company-row";
 import IndustryCard from "@/components/industry-card";
 
 export default async function Home() {
-  const industries = await fetchIndustries();
+  const industries = await fetchIndustries(); // Errors are handled in error.js
 
   const elements = industries.map((industry) => {
     const jobs: IndustryCardCompanyRowProps[] = industry.industries.map(

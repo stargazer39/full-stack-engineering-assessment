@@ -1,17 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) for full stack engineering assessment frontend developments.
 
 ## Getting Started
 
-First, run the development server:
+Prerequisites 
+ *  Node.js 23 or higher installed on your system
+
+First Run the API backend for local development (See [`here`](https://github.com/stargazer39/full-stack-engineering-assessment-be) for setting it up.)
+
+Second, create .env file in the root of the project directory.
+
+```bash
+API_ENDPOINT="[address to the local api server eg: http://localhost:<local server port>]"
+```
+
+Third, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
